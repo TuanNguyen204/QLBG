@@ -14,7 +14,8 @@ public class mainFrame extends javax.swing.JFrame {
     //contructor
     public mainFrame() {
         initComponents();
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null);  
+        
     }
     public mainFrame(String username, String password, Connection conn) {
         connection=conn;
@@ -22,9 +23,7 @@ public class mainFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         userLabel.setText(username);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        init_blank();
-        set_label_instance();
-        set_label_database();
+        init_blank();        
         set_label_last_login(username);
         
         
@@ -58,16 +57,17 @@ public class mainFrame extends javax.swing.JFrame {
         userLabel = new javax.swing.JLabel();
         lbl_1 = new javax.swing.JLabel();
         lbl_lastlogin = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        menu_panel_admin = new javax.swing.JPanel();
         btn_system = new javax.swing.JButton();
         btn_user = new javax.swing.JButton();
         btn_role = new javax.swing.JButton();
         btn_audit = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        menu_panel_table = new javax.swing.JPanel();
         btn_tbl_khachhang = new javax.swing.JButton();
         btn_tbl_sanpham = new javax.swing.JButton();
         btn_tbl_hoadon = new javax.swing.JButton();
         btn_tbl_phieunhap = new javax.swing.JButton();
+        btn_logout = new javax.swing.JButton();
         panel_work = new javax.swing.JPanel();
         panel_system = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -232,7 +232,7 @@ public class mainFrame extends javax.swing.JFrame {
         panel_titleLayout.setHorizontalGroup(
             panel_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_titleLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(480, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(155, 155, 155))
         );
@@ -254,8 +254,8 @@ public class mainFrame extends javax.swing.JFrame {
 
         lbl_lastlogin.setText("jLabel7");
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Administrator"));
+        menu_panel_admin.setBackground(new java.awt.Color(0, 153, 153));
+        menu_panel_admin.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Administrator"));
 
         btn_system.setText("System");
         btn_system.addActionListener(new java.awt.event.ActionListener() {
@@ -285,22 +285,22 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout menu_panel_adminLayout = new javax.swing.GroupLayout(menu_panel_admin);
+        menu_panel_admin.setLayout(menu_panel_adminLayout);
+        menu_panel_adminLayout.setHorizontalGroup(
+            menu_panel_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_panel_adminLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menu_panel_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_audit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_system, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_role, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        menu_panel_adminLayout.setVerticalGroup(
+            menu_panel_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_panel_adminLayout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(btn_system)
                 .addGap(18, 18, 18)
@@ -312,8 +312,8 @@ public class mainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Table"));
+        menu_panel_table.setBackground(new java.awt.Color(0, 153, 153));
+        menu_panel_table.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Table"));
 
         btn_tbl_khachhang.setText("KHACHHANG");
         btn_tbl_khachhang.addActionListener(new java.awt.event.ActionListener() {
@@ -338,22 +338,22 @@ public class mainFrame extends javax.swing.JFrame {
 
         btn_tbl_phieunhap.setText("PHIEU NHAP");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout menu_panel_tableLayout = new javax.swing.GroupLayout(menu_panel_table);
+        menu_panel_table.setLayout(menu_panel_tableLayout);
+        menu_panel_tableLayout.setHorizontalGroup(
+            menu_panel_tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_panel_tableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menu_panel_tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_tbl_khachhang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_tbl_sanpham, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                    .addComponent(btn_tbl_sanpham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_tbl_hoadon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_tbl_phieunhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        menu_panel_tableLayout.setVerticalGroup(
+            menu_panel_tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_panel_tableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_tbl_khachhang)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -364,6 +364,13 @@ public class mainFrame extends javax.swing.JFrame {
                 .addComponent(btn_tbl_phieunhap)
                 .addContainerGap(8, Short.MAX_VALUE))
         );
+
+        btn_logout.setText("Log Out");
+        btn_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_logoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
@@ -377,9 +384,13 @@ public class mainFrame extends javax.swing.JFrame {
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(lbl_1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(menu_panel_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu_panel_table, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(panel_menuLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(btn_logout)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,9 +398,11 @@ public class mainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(menu_panel_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(menu_panel_table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_logout)
                 .addGap(18, 18, 18)
                 .addComponent(lbl_1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -519,7 +532,7 @@ public class mainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_create_tbs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_kill_session, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panel_systemLayout = new javax.swing.GroupLayout(panel_system);
@@ -619,7 +632,7 @@ public class mainFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -631,7 +644,7 @@ public class mainFrame extends javax.swing.JFrame {
                         .addComponent(btn_lock_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_unlock_user, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                         .addComponent(btn_delete_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -722,7 +735,7 @@ public class mainFrame extends javax.swing.JFrame {
                         .addComponent(btn_user_in_profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_create_profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_delete_profilr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -734,7 +747,7 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(cbo_profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_desc_profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -812,9 +825,9 @@ public class mainFrame extends javax.swing.JFrame {
             .addGroup(panel_auditLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_auditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4)
                     .addGroup(panel_auditLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 300, Short.MAX_VALUE)
                         .addComponent(btn_audit_log)
                         .addGap(57, 57, 57)
                         .addComponent(btn_audit_hoadon)
@@ -835,7 +848,7 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(btn_audit_hoadon)
                     .addComponent(btn_audit_cthoadon)
                     .addComponent(btn_audit_sanpham))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         panel_role.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)), "Roles & Privileges"));
@@ -961,7 +974,7 @@ public class mainFrame extends javax.swing.JFrame {
                                 .addComponent(btn_grant_revoke)
                                 .addGap(30, 30, 30)
                                 .addComponent(btn_delete_role)))
-                        .addGap(0, 57, Short.MAX_VALUE)))
+                        .addGap(0, 77, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panel_roleLayout.setVerticalGroup(
@@ -997,13 +1010,10 @@ public class mainFrame extends javax.swing.JFrame {
             panel_workLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panel_system, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panel_workLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_workLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panel_user, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)))
+                .addComponent(panel_user, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE))
             .addGroup(panel_workLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_workLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panel_audit, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                    .addComponent(panel_audit, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(panel_workLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_workLayout.createSequentialGroup()
@@ -1013,13 +1023,9 @@ public class mainFrame extends javax.swing.JFrame {
         );
         panel_workLayout.setVerticalGroup(
             panel_workLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_workLayout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(panel_system, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panel_system, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
             .addGroup(panel_workLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_workLayout.createSequentialGroup()
-                    .addComponent(panel_user, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(panel_user, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
             .addGroup(panel_workLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_workLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1047,10 +1053,13 @@ public class mainFrame extends javax.swing.JFrame {
             .addGroup(panel_mainLayout.createSequentialGroup()
                 .addComponent(panel_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel_work, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
-                    .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
-                .addGap(0, 79, Short.MAX_VALUE))
+                .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_mainLayout.createSequentialGroup()
+                        .addComponent(panel_work, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 79, Short.MAX_VALUE))
+                    .addGroup(panel_mainLayout.createSequentialGroup()
+                        .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1072,7 +1081,9 @@ public class mainFrame extends javax.swing.JFrame {
         panel_system.setVisible(true);
         panel_user.setVisible(false);
         panel_audit.setVisible(false);
-        panel_role.setVisible(false);        
+        panel_role.setVisible(false);  
+        set_label_instance();
+        set_label_database();
     }//GEN-LAST:event_btn_systemActionPerformed
     
     //button user
@@ -1708,6 +1719,12 @@ public class mainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_audit_sanphamActionPerformed
 
+    private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
+        this.dispose();
+        loginFrame login = new loginFrame();
+        login.setVisible(true);
+    }//GEN-LAST:event_btn_logoutActionPerformed
+
     
 
     //label instance
@@ -1747,7 +1764,7 @@ public class mainFrame extends javax.swing.JFrame {
         try{
             Statement st= connection.createStatement();
             
-            String last="select last_login from dba_users where username='"+username.toUpperCase()+"'";        
+            String last="SELECT LAST_LOGIN FROM SYS.VIEW_LAST_LOGIN WHERE USERNAME='"+username.toUpperCase()+"'";        
             ResultSet rs= st.executeQuery(last);
             while(rs.next()){
                 Timestamp lastlogin = rs.getTimestamp("LAST_LOGIN");
@@ -1867,6 +1884,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_kill;
     private javax.swing.JButton btn_kill_session;
     private javax.swing.JButton btn_lock_user;
+    private javax.swing.JButton btn_logout;
     private javax.swing.JButton btn_privs_role;
     private javax.swing.JButton btn_privs_user;
     private javax.swing.JButton btn_role;
@@ -1902,8 +1920,6 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1914,6 +1930,8 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_database;
     private javax.swing.JLabel lbl_instance;
     private javax.swing.JLabel lbl_lastlogin;
+    private javax.swing.JPanel menu_panel_admin;
+    private javax.swing.JPanel menu_panel_table;
     private javax.swing.JPanel panel_audit;
     private javax.swing.JPanel panel_main;
     private javax.swing.JPanel panel_menu;
