@@ -14,11 +14,12 @@ public class frame_sanpham extends javax.swing.JFrame {
         initComponents();
     }
 
-    public frame_sanpham(Connection conn) {
-        initComponents();
+    public frame_sanpham(Connection conn) {        
         initComponents();
         this.setLocationRelativeTo(null);
         connection=conn;
+        
+        load_thuonghieu();
     }
     
     @SuppressWarnings("unchecked")
@@ -29,6 +30,7 @@ public class frame_sanpham extends javax.swing.JFrame {
         cbo_thuoghieu = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_sanpham = new javax.swing.JTable();
+        btn_cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,18 +55,27 @@ public class frame_sanpham extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_sanpham);
 
+        btn_cancel.setText("CANCEL");
+        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbo_thuoghieu, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_cancel)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(cbo_thuoghieu, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -76,13 +87,23 @@ public class frame_sanpham extends javax.swing.JFrame {
                     .addComponent(cbo_thuoghieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(btn_cancel)
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbo_thuoghieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbo_thuoghieuActionPerformed
+        load_sanpham();
+    }//GEN-LAST:event_cbo_thuoghieuActionPerformed
+
+    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_cancelActionPerformed
+
+    private void load_sanpham(){
         String tenth =(String) cbo_thuoghieu.getSelectedItem();
         try{
             String sql= "SELECT * FROM SYSTEM.SANPHAM WHERE MATH=(SELECT MATH FROM SYSTEM.THUONGHIEU WHERE TENTH='"+tenth+"')";
@@ -100,22 +121,21 @@ public class frame_sanpham extends javax.swing.JFrame {
                 String th= rs.getString("MATH");
                 model.addRow(new Object[]{magiay, ten, ton, gia, size, chatlieu, th});
                 
-            }        
+            }     
+            tbl_sanpham.setModel(model);
             st.close();
             rs.close();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
             return;
         }
-    }//GEN-LAST:event_cbo_thuoghieuActionPerformed
-
+    }
     private void load_thuonghieu(){
         try{
-            String sql="select * from SYSTEM.THUONGHIEU";
+            String sql="SELECT TENTH FROM SYSTEM.THUONGHIEU";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while(rs.next()){
-                
+            while(rs.next()){                
                 cbo_thuoghieu.addItem(rs.getString("TENTH"));
             }        
             st.close();
@@ -158,6 +178,7 @@ public class frame_sanpham extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cancel;
     private javax.swing.JComboBox<String> cbo_thuoghieu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

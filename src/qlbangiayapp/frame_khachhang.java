@@ -231,7 +231,6 @@ public class frame_khachhang extends javax.swing.JFrame {
     private void btn_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createActionPerformed
         if(txt_makh.getText()!=""){
             insert_khachhang();
-            create_user();
             load_data_to_tbl_khachhang();
         }
         else{
@@ -365,10 +364,10 @@ public class frame_khachhang extends javax.swing.JFrame {
                         return;
                     }
                 }
-                else{
-                    JOptionPane.showMessageDialog(null,"Ma khach hang khong duoc de trong");
-                    return;
-                }
+//                else{
+//                    JOptionPane.showMessageDialog(null,"Ma khach hang khong duoc de trong");
+//                    return;
+//                }
             }
         
     }//GEN-LAST:event_btn_deleteActionPerformed
@@ -399,21 +398,7 @@ public class frame_khachhang extends javax.swing.JFrame {
         }
     }
     
-    private void create_user(){
-        String makh= txt_makh.getText().toUpperCase(); 
-        try{            
-            String sql="{CALL PROC_CREATE_USER(?) }";
-            CallableStatement cs= connection.prepareCall(sql);
-            cs.setString(1,makh);
-            int rs= cs.executeUpdate();
-            if(rs==0){
-                JOptionPane.showMessageDialog(null, "Tao moi user thanh cong!");
-            }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-            return;
-        }
-    }
+    
     
     private void load_data_to_tbl_khachhang(){
         tbl_khachhang.removeAll();

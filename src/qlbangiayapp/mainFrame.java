@@ -1588,7 +1588,8 @@ public class mainFrame extends javax.swing.JFrame {
  
     // button table sanpham
     private void btn_tbl_sanphamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tbl_sanphamActionPerformed
-        
+        frame_sanpham sanpham = new frame_sanpham(connection);
+        sanpham.setVisible(true);
     }//GEN-LAST:event_btn_tbl_sanphamActionPerformed
   
     //button table khachhang
@@ -1599,7 +1600,8 @@ public class mainFrame extends javax.swing.JFrame {
     
     //button table hoadon
     private void btn_tbl_hoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tbl_hoadonActionPerformed
-    
+        frame_hoadon hoadon = new frame_hoadon(connection);
+        hoadon.setVisible(true);
     }//GEN-LAST:event_btn_tbl_hoadonActionPerformed
 
     private void btn_audit_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_audit_logActionPerformed
