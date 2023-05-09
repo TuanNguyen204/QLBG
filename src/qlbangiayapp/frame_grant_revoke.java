@@ -430,7 +430,7 @@ public class frame_grant_revoke extends javax.swing.JFrame {
                 Statement st = connection.createStatement();
                 for(int i=0;i<n;i++){
                     String role = model.getElementAt(i);
-                    String sql="REVOKE "+role+" TO "+name;
+                    String sql="REVOKE "+role+" FROM "+name;
                     int rs = st.executeUpdate(sql);
                     if(rs==0){
                         list.add(role);
@@ -458,7 +458,7 @@ public class frame_grant_revoke extends javax.swing.JFrame {
                 Statement st = connection.createStatement();
                 for(int i=0;i<n;i++){
                     String priv = model.getElementAt(i);
-                    String sql="REVOKE "+priv+" ON SYSTEM."+table+" TO "+name;
+                    String sql="REVOKE "+priv+" ON SYSTEM."+table+" FROM "+name;
                     int rs = st.executeUpdate(sql);
                     if(rs==0){
                         list.add(priv);

@@ -48,7 +48,7 @@ public class frame_hoadon extends javax.swing.JFrame {
         tbl_cthd.removeAll();
         int t_mahd= Integer.parseInt(txt_mahd.getText());
         try{
-            String sql="SELECT C.MAHD, S.TENGIAY, C.SLG FROM CTHOADON C, SANPHAM S WHERE C.MAGIAY=S.MAGIAY AND C.MAHD="+t_mahd;
+            String sql="SELECT C.MAHD, S.TENGIAY, C.SLG FROM SYSTEM.CTHOADON C, SYSTEM.SANPHAM S WHERE C.MAGIAY=S.MAGIAY AND C.MAHD="+t_mahd;
             Statement st= connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             DefaultTableModel model = new DefaultTableModel();
@@ -283,7 +283,7 @@ public class frame_hoadon extends javax.swing.JFrame {
         String makh= txt_makh.getText().toUpperCase();
         
         try{            
-            String sql="{CALL PROC_INSERT_KHACHHANG(?) }";
+            String sql="{CALL PROC_INSERT_HOADON(?) }";
             CallableStatement cs= connection.prepareCall(sql);
             cs.setString(1,makh);
                         

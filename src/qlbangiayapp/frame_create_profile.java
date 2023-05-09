@@ -81,7 +81,7 @@ public class frame_create_profile extends javax.swing.JFrame {
 
         cbo_password_lifetime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "10", "30", "50", "100", "UNLIMITED" }));
 
-        cbo_fail_login.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "5", "10", "UNLIMITED" }));
+        cbo_fail_login.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "5", "10", "UNLIMITED" }));
 
         cbo_lock_time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "5", "10", "30", "UNLIMITED", " " }));
 
@@ -284,7 +284,7 @@ public class frame_create_profile extends javax.swing.JFrame {
             String update1 = "alter profile "+name+" limit SESSIONS_PER_USER "+session;
             String update2 = "alter profile "+name+" limit CONNECT_TIME "+contime;
             String update3 = "alter profile "+name+" limit PASSWORD_LIFE_TIME "+lifetime;
-            String update4 = "alter profile "+name+" limit FAILED_LOGIN_ATTEMPS "+fail;
+            String update4 = "alter profile "+name+" limit FAILED_LOGIN_ATTEMPTS "+fail;
             String update5 = "alter profile "+name+" limit PASSWORD_LOCK_TIME "+lock;
             if(chk_session.isSelected()){
                int rs1 = st.executeUpdate(update1);
