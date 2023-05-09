@@ -25,8 +25,7 @@ public class mainFrame extends javax.swing.JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         init_blank();        
         set_label_last_login(username);
-        
-        
+        txt_username.setText(username);       
     }
     //init blank
     private void init_blank(){
@@ -48,8 +47,14 @@ public class mainFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txt_sid = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txt_serial = new javax.swing.JTextField();
         btn_kill = new javax.swing.JButton();
+        dialog_doimk = new javax.swing.JDialog();
+        txt_username = new javax.swing.JTextField();
+        txt_password = new javax.swing.JTextField();
+        btn_doimk_2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         panel_title = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -68,6 +73,7 @@ public class mainFrame extends javax.swing.JFrame {
         btn_tbl_hoadon = new javax.swing.JButton();
         btn_tbl_phieunhap = new javax.swing.JButton();
         btn_logout = new javax.swing.JButton();
+        btn_doimk = new javax.swing.JButton();
         panel_work = new javax.swing.JPanel();
         panel_system = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -177,6 +183,11 @@ public class mainFrame extends javax.swing.JFrame {
         jLabel6.setText("Serial");
 
         btn_kill.setText("Kill");
+        btn_kill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_killActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dialog_kill_sessionLayout = new javax.swing.GroupLayout(dialog_kill_session.getContentPane());
         dialog_kill_session.getContentPane().setLayout(dialog_kill_sessionLayout);
@@ -190,7 +201,7 @@ public class mainFrame extends javax.swing.JFrame {
                             .addGroup(dialog_kill_sessionLayout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField2))
+                                .addComponent(txt_serial))
                             .addGroup(dialog_kill_sessionLayout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -210,9 +221,57 @@ public class mainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(dialog_kill_sessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_serial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(btn_kill)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        txt_username.setEnabled(false);
+
+        btn_doimk_2.setText("Change");
+        btn_doimk_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_doimk_2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Username");
+
+        jLabel12.setText("Password");
+
+        javax.swing.GroupLayout dialog_doimkLayout = new javax.swing.GroupLayout(dialog_doimk.getContentPane());
+        dialog_doimk.getContentPane().setLayout(dialog_doimkLayout);
+        dialog_doimkLayout.setHorizontalGroup(
+            dialog_doimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_doimkLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialog_doimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dialog_doimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_username)
+                    .addComponent(txt_password, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialog_doimkLayout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
+                .addComponent(btn_doimk_2)
+                .addGap(88, 88, 88))
+        );
+        dialog_doimkLayout.setVerticalGroup(
+            dialog_doimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_doimkLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(dialog_doimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(26, 26, 26)
+                .addGroup(dialog_doimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(28, 28, 28)
+                .addComponent(btn_doimk_2)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -346,7 +405,7 @@ public class mainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(menu_panel_tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_tbl_khachhang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_tbl_sanpham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_tbl_sanpham, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
                     .addComponent(btn_tbl_hoadon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_tbl_phieunhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -372,6 +431,13 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
+        btn_doimk.setText("Doi MK");
+        btn_doimk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_doimkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
         panel_menuLayout.setHorizontalGroup(
@@ -379,7 +445,9 @@ public class mainFrame extends javax.swing.JFrame {
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_menuLayout.createSequentialGroup()
+                        .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(78, 78, 78))
                     .addComponent(lbl_lastlogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(lbl_1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -389,7 +457,9 @@ public class mainFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(btn_logout)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_doimk)
+                    .addComponent(btn_logout))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
@@ -402,6 +472,8 @@ public class mainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(menu_panel_table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_doimk)
+                .addGap(18, 18, 18)
                 .addComponent(btn_logout)
                 .addGap(18, 18, 18)
                 .addComponent(lbl_1)
@@ -1211,6 +1283,8 @@ public class mainFrame extends javax.swing.JFrame {
     
     //button kill session
     private void btn_kill_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kill_sessionActionPerformed
+        dialog_kill_session.setSize(350,150);
+        dialog_kill_session.setLocationRelativeTo(null);
         dialog_kill_session.setVisible(true);
     }//GEN-LAST:event_btn_kill_sessionActionPerformed
     
@@ -1509,6 +1583,8 @@ public class mainFrame extends javax.swing.JFrame {
     
     //button create new role
     private void btn_create_new_roleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_create_new_roleActionPerformed
+        dialog_create_role.setSize(350, 150);
+        dialog_create_role.setLocationRelativeTo(null);
         dialog_create_role.setVisible(true);
     }//GEN-LAST:event_btn_create_new_roleActionPerformed
     
@@ -1610,11 +1686,11 @@ public class mainFrame extends javax.swing.JFrame {
             String sql= "select * from audit_log";
             ResultSet rs = st.executeQuery(sql);
             DefaultTableModel model = new DefaultTableModel();
-            model.setColumnIdentifiers(new String[]{"OPERATION","USERNAME","TIME"});
+            model.setColumnIdentifiers(new String[]{"OPERATION","USERNAME","DATE_LOG"});
             while(rs.next()){                
                 String operation = rs.getString("OPERATION");
                 String username = rs.getString("USERNAME");
-                Date time= rs.getDate("ACTION_TIME");
+                Date time= rs.getDate("DATE_LOG");
                 model.addRow(new Object[]{operation, username, time});             
             }
             rs.close();
@@ -1726,6 +1802,44 @@ public class mainFrame extends javax.swing.JFrame {
         loginFrame login = new loginFrame();
         login.setVisible(true);
     }//GEN-LAST:event_btn_logoutActionPerformed
+
+    private void btn_killActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_killActionPerformed
+        String sid = txt_sid.getText();
+        String serial = txt_serial.getText();
+        try{
+            String sql="ALTER SYSTEM KILL SESSION '?,?' IMEEDIATE";
+            PreparedStatement pst = connection.prepareStatement(sql);
+            pst.setString(1,sid);
+            pst.setString(2, serial);
+            int result = pst.executeUpdate();
+            if(result==0){
+                JOptionPane.showMessageDialog(null,"Kill session completed!");
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);            
+        }
+    }//GEN-LAST:event_btn_killActionPerformed
+
+    private void btn_doimk_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_doimk_2ActionPerformed
+        String username = txt_username.getText();
+        String password = txt_password.getText();
+        try{
+            Statement st = connection.createStatement();            
+            String sql= "ALTER USER "+username+" IDENTIFIED BY "+password;
+            int rs = st.executeUpdate(sql);
+            if(rs==0){
+                JOptionPane.showMessageDialog(null,"Doi mat khau thanh cong!");
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);            
+        }
+    }//GEN-LAST:event_btn_doimk_2ActionPerformed
+
+    private void btn_doimkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_doimkActionPerformed
+        dialog_doimk.setSize(330,200);
+        dialog_doimk.setLocationRelativeTo(null);
+        dialog_doimk.setVisible(true);
+    }//GEN-LAST:event_btn_doimkActionPerformed
 
     
 
@@ -1880,6 +1994,8 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_delete_role;
     private javax.swing.JButton btn_delete_user;
     private javax.swing.JButton btn_desc_profile;
+    private javax.swing.JButton btn_doimk;
+    private javax.swing.JButton btn_doimk_2;
     private javax.swing.JButton btn_grant_revoke;
     private javax.swing.JButton btn_granted_role_role;
     private javax.swing.JButton btn_granted_role_user;
@@ -1908,9 +2024,12 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbo_user;
     private javax.swing.JComboBox<String> cbo_user_2;
     private javax.swing.JDialog dialog_create_role;
+    private javax.swing.JDialog dialog_doimk;
     private javax.swing.JDialog dialog_kill_session;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1927,7 +2046,6 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbl_1;
     private javax.swing.JLabel lbl_database;
     private javax.swing.JLabel lbl_instance;
@@ -1947,8 +2065,11 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JTable table_privs;
     private javax.swing.JTable table_profiles;
     private javax.swing.JTable table_user;
+    private javax.swing.JTextField txt_password;
     private javax.swing.JTextField txt_role_name;
+    private javax.swing.JTextField txt_serial;
     private javax.swing.JTextField txt_sid;
+    private javax.swing.JTextField txt_username;
     private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
 }

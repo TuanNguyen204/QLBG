@@ -413,11 +413,14 @@
             <Component class="javax.swing.JComboBox" name="cbo_table">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="7">
                     <StringItem index="0" value="KHACHHANG"/>
                     <StringItem index="1" value="THUONGHIEU"/>
                     <StringItem index="2" value="SANPHAM"/>
                     <StringItem index="3" value="HOADON"/>
+                    <StringItem index="4" value="CTHOADON"/>
+                    <StringItem index="5" value="PHIEUNHAP"/>
+                    <StringItem index="6" value="CTPHIEUNHAP"/>
                   </StringArray>
                 </Property>
               </Properties>

@@ -27,6 +27,7 @@ public class frame_grant_revoke extends javax.swing.JFrame {
         connection=conn;
         initComponents();
         load_data_to_list_1();
+        this.setLocationRelativeTo(null);
     }
     
     @SuppressWarnings("unchecked")
@@ -197,7 +198,7 @@ public class frame_grant_revoke extends javax.swing.JFrame {
             }
         });
 
-        cbo_table.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KHACHHANG", "THUONGHIEU", "SANPHAM", "HOADON" }));
+        cbo_table.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KHACHHANG", "THUONGHIEU", "SANPHAM", "HOADON", "CTHOADON", "PHIEUNHAP", "CTPHIEUNHAP" }));
 
         jLabel4.setText("Table");
 
@@ -382,9 +383,10 @@ public class frame_grant_revoke extends javax.swing.JFrame {
                 int rs = st.executeUpdate(sql);
                 if(rs==0){
                     list.add(role);
+                    JOptionPane.showMessageDialog(null,"Grant "+list+" to "+name+" Success" );
                 }
             }            
-                JOptionPane.showMessageDialog(null,"Grant "+list+" to "+name+" Success" );            
+                            
             }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
                 return;
@@ -403,13 +405,14 @@ public class frame_grant_revoke extends javax.swing.JFrame {
             Statement st = connection.createStatement();
             for(int i=0;i<n;i++){
                 String priv = model.getElementAt(i);
-                String sql="GRANT "+priv+" ON "+table+" TO "+name;
+                String sql="GRANT "+priv+" ON SYSTEM."+table+" TO "+name;
                 int rs = st.executeUpdate(sql);
                 if(rs==0){
                     list.add(priv);
+                    JOptionPane.showMessageDialog(null,"Grant "+list+" on "+table+" to "+name+" Success" );
                 }
             }            
-                JOptionPane.showMessageDialog(null,"Grant "+list+" on "+table+" to "+name+" Success" );            
+                            
             }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
                 return;
@@ -431,10 +434,11 @@ public class frame_grant_revoke extends javax.swing.JFrame {
                     int rs = st.executeUpdate(sql);
                     if(rs==0){
                         list.add(role);
+                        JOptionPane.showMessageDialog(null,"Revoke "+list+" Success" );
                     }
                 }
                 if(list!=null){
-                    JOptionPane.showMessageDialog(null,"Revoke "+list+" Success" );
+                    
                 }                            
             }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -454,7 +458,7 @@ public class frame_grant_revoke extends javax.swing.JFrame {
                 Statement st = connection.createStatement();
                 for(int i=0;i<n;i++){
                     String priv = model.getElementAt(i);
-                    String sql="REVOKE "+priv+" ON "+table+" TO "+name;
+                    String sql="REVOKE "+priv+" ON SYSTEM."+table+" TO "+name;
                     int rs = st.executeUpdate(sql);
                     if(rs==0){
                         list.add(priv);
